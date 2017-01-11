@@ -1,0 +1,13 @@
+.header {
+text-align: center;
+color: red;
+}
+.footer {
+text-align: center;
+color: red;
+}
+.error {
+    color: indianred;
+font-size: -1em;
+}
+

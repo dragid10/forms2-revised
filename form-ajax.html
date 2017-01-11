@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Oladelaa Forms Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="form.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 header">
+            <h1>Oladelaa Forms Example</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div id="table" class="col-sm-8">
+            <table class="table .table-bordered">
+                <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Current City</th>
+                    <th>uid</th>
+                    <th>IP</th>
+                    <th>When</th>
+                </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-primary btn-block" id="updateLeft">Update</button>
+        </div>
+        <div class="col-sm-4">
+
+            <h2>User Information Form</h2>
+            <form role="form" method='post' id='myform'>
+                <div class="form-group">
+                    <label for="firstname" data-toggle="tooltip" title="At least 2 characters long">First Name:</label>
+                    <input type="text" class="form-control" name="firstname" id="firstname" data-toggle="tooltip"
+                           title="at least 2 characters long">
+                    <div class='alert alert-danger' id='firstnameError'>Input must be two words</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastname" data-toggle="tooltip" title="At least 2 characters long">Last Name:</label>
+                    <input type="text" class="form-control" name="lastname" id="lastname" data-toggle="tooltip"
+                           title="at least 2 characters long">
+                    <div class='alert alert-danger' id='lastnameError'>Input must be two words</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="miamiuid" data-toggle="tooltip" title="At least 2 characters long">Miami UID</label>
+                    <input type="text" class="form-control" name="miamiuid" id="miamiuid" data-toggle="tooltip"
+                           title="at least 2 characters long">
+                    <div class='alert alert-danger' id='miamiuidError'>Input must be two words</div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="hometown" data-toggle="tooltip" title="At least 2 characters long">Hometown</label>
+                    <input type="text" class="form-control" name="hometown" id="hometown" data-toggle="tooltip"
+                           title="at least 2 characters long">
+                    <div class='alert alert-danger' id='hometownError'>Input must be two words</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="currentcity" data-toggle="tooltip" title="At least 2 characters long">Current
+                        City:</label>
+                    <input type="text" class="form-control" name="currentcity" id="currentcity" data-toggle="tooltip"
+                           title="at least 2 characters long">
+                    <div class='alert alert-danger' id='currentcityError'>Input must be two words</div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="comment">Comment:</label>
+                    <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
+                    <div class='alert alert-danger' id='commentError'>Please provide a comment</div>
+                </div>
+
+                Please select all that apply:
+                <div class="checkbox">
+                    <label><input type="checkbox" value="option1" name="option1">Option 1</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" value="option2" name="option2">Option 2</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" value="option3" name="option3">Option 3</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="year">Select list:</label>
+                    <select class="form-control" id="year" name="year">
+                        <option>Freshman</option>
+                        <option>Sophmore</option>
+                        <option>Junior</option>
+                        <option>Senior</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <!--Set the type to reset, to clear out the data. Much Easier than using jQuery-->
+                <button id="submitButton" type="reset" class="btn btn-default">Submit</button>
+                <div class='alert alert-danger' id='submitError'>Please fix form before submitting</div>
+                <input type='hidden' name='redirect' value='index.html'>
+                <input type='hidden' name='uid' value='Oladelaa'>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-sm-12 footer">
+        (c) Alex Oladele, designed for CSE270, 2017
+    </div>
+</div>
+
+</body>
+</html>
