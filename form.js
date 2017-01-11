@@ -1,33 +1,42 @@
 $(function () { // Waits until document has loaded before it proceeds with any of the JS
 
     // Just some initialization
-    var formData = "", firstname = "", lastname = '', miamiuid = '', hometown = '', currentcity = '', comment = '', myData = '',
-        uid = '', tempObj = {}, obj = "";
+    var formData = "",
+        firstname = "",
+        lastname = '',
+        miamiuid = '',
+        hometown = '',
+        currentcity = '',
+        comment = '',
+        myData = '',
+        uid = '',
+        tempObj = {},
+        obj = "";
 
     // Get request to get data loaded on the campbest server
     // "http://oladelaa.270e.csi.miamioh.edu:3400/student"
     function getMethod() {
-    	$.get("http://oladelaa.270e.csi.miamioh.edu:3400/student", function (data, status) {
-        console.log("Status is (GET): " + status + "\nData is: " + data);
+        $.get("http://oladelaa.270e.csi.miamioh.edu:3400/student", function (data, status) {
+            console.log("Status is (GET): " + status + "\nData is: " + data);
 
-        // If the connection went through, the and there is data, then save it to a local variable
-        if (status === "success" && data != "") {
-            formData = data.data;
-            console.log("Status was good! data assigned to formData: ");
-            console.log(formData);
+            // If the connection went through, the and there is data, then save it to a local variable
+            if (status === "success" && data != "") {
+                formData = data.data;
+                console.log("Status was good! data assigned to formData: ");
+                console.log(formData);
 
-        }
-    }, "json").error(function () {
-        // Indicates that something is wrong, and couldn't get the data
-        alert("Something went wrong! Could not get data from Campbest (Probably because CORS isn't being allowed)");
-    });
+            }
+        }, "json").error(function () {
+            // Indicates that something is wrong, and couldn't get the data
+            alert("Something went wrong! Could not get data from Campbest (Probably because CORS isn't being allowed)");
+        });
     }
 
     getMethod();
 
     // Updates the left column with the data from the server
     $("#updateLeft").click(function () {
-    	getMethod();
+        getMethod();
         obj = formData[0];
         console.log(obj);
         // Goes through and created new rows based on the parsed data by appending them to the HTML
@@ -47,6 +56,9 @@ $(function () { // Waits until document has loaded before it proceeds with any o
         var content = $(this).val();
 
         // Saves the values from the fields into variables to use in POST
+
+
+
         firstname = $("#firstname").val();
         lastname = $("#lastname").val();
         miamiuid = $("#miamiuid").val();
@@ -57,13 +69,13 @@ $(function () { // Waits until document has loaded before it proceeds with any o
 
         // Creates Obj with the values (THAT APPARENTLY DOESN"T NEED TO BE STRINGIFIED)
         tempObj = {
-            "firstname": firstname,
-            "lastname": lastname,
-            "miamiuid": miamiuid,
-            "hometown": hometown,
-            "currentcity": currentcity,
-            "comment": comment,
-            "uid": miamiuid.toLowerCase(),
+            "firstname": firstname.replace("<script>", "").replace("</script>", ""),
+            "lastname": lastname.replace("<script>", "").replace("</script>", ""),
+            "miamiuid": miamiuid.replace("<script>", "").replace("</script>", ""),
+            "hometown": hometown.replace("<script>", "").replace("</script>", ""),
+            "currentcity": currentcity.replace("<script>", "").replace("</script>", ""),
+            "comment": comment.replace("<script>", "").replace("</script>", ""),
+            "uid": miamiuid.toLowerCase().replace("<script>", "").replace("</script>", ""),
             "option1": "0",
             "option2": "1",
             "option3": "0",
@@ -82,7 +94,7 @@ $(function () { // Waits until document has loaded before it proceeds with any o
         // Checks to see if all necessary fields are filled out. If the fields are not filled out, then It'll prevent the submission
         $("#submitButton").unbind().click(function () {
             if (($("#firstname").val() || $("#lastname").val() || $("#miamiuid").val() || $("#hometown").val() ||
-                $("#currentcity").val() || $("#comment").val()) === ("" || " " )) {
+                    $("#currentcity").val() || $("#comment").val()) === ("" || " ")) {
                 $("#myform").submit(function (e) {
                     $("#submitError").show();
                     e.preventDefault();
