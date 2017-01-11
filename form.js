@@ -7,7 +7,7 @@ $(function () { // Waits until document has loaded before it proceeds with any o
     // Get request to get data loaded on the campbest server
     // "http://oladelaa.270e.csi.miamioh.edu:3400/student"
     function getMethod() {
-    	$.get("http://localhost:3300/student", function (data, status) {
+    	$.get("http://oladelaa.270e.csi.miamioh.edu:3400/student", function (data, status) {
         console.log("Status is (GET): " + status + "\nData is: " + data);
 
         // If the connection went through, the and there is data, then save it to a local variable
@@ -91,7 +91,7 @@ $(function () { // Waits until document has loaded before it proceeds with any o
                 // What to do if all the fields are filled out
 
                 // Sets up a POST request to the server
-                $.post("http://localhost:3300/student", tempObj, function (data, status) {
+                $.post("http://oladelaa.270e.csi.miamioh.edu:3400/student", tempObj, function (data, status) {
                     // If data successfully submitted, then show an alert box
                     if (status === "ok") {
                         console.log("POST STATUS: " + status);
