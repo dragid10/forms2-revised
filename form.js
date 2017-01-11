@@ -114,7 +114,7 @@ $(function () { // Waits until document has loaded before it proceeds with any o
                     getMethod();
                 }, "json").error(function () {
                     // If data not successfully submitted, then show the status message and an alert dialog
-                    console.log("Status: " + status);
+                    // console.log("Status: " + status);
                     alert("Form not submitted! Error occurred!");
                 });
             }
